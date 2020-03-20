@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>EJERCICIO 1</title>
+</head>
+<body>
+    <div id="ejercicio1VUE" class="container">
+        <!-- TITTLE -->
+        <div class="text-danger mt-4 text-center">
+            <h1> CURSOS POR APRENDER </h1>
+        </div>
+        <!-- FORM -->
+        <input @keyup.enter="agrerarCurso()" class="form-control" type="text" v-model="cursoUI" placeholder="DIGITAR CURSO NUEVO" required> 
+        <button @click="agrerarCurso()" class="form-control btn btn-success mt-2 mb-5" > AGREGAR </button>
+        <!-- LIST CURSES -->
+        <div v-for="(item, index) of listCurses">
+            <div :class="[item.status ? 'alert-info':'alert-danger']" class="alert d-flex justify-content-between" role="alert">
+                <b> {{item.name}} - {{item.status}} </b>
+                <div class="float-right">
+                    <button class="btn btn-primary rounded-circle h-100" @click="marcarCurso(index)" >  </button>
+                </div>
+            </div>            
+        </div>
+        <!-- END CONTAINER -->
+    </div>
+
+
+
+
+    <script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js" > </script>
+    <script src="../js/ejercicio1.js"></script>
+</body>
+</html>
